@@ -1,0 +1,64 @@
+/* style.css - Custom Styles & Animations */
+
+/* Base Styles & Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #F7F1E8; /* bg-background */
+  color: #3E2F25; /* text-foreground */
+  font-family: 'Geist', system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Base border handling to match Tailwind's @layer base */
+*, ::before, ::after {
+  border-color: #D4C4B0; /* border-border */
+}
+
+/* Animations (Replaces Framer Motion FadeIn) */
+.fade-in-section {
+  opacity: 0;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, visibility;
+}
+
+.fade-in-up {
+  transform: translateY(40px);
+}
+
+.fade-in-down {
+  transform: translateY(-40px);
+}
+
+.fade-in-left {
+  transform: translateX(40px);
+}
+
+.fade-in-right {
+  transform: translateX(-40px);
+}
+
+.fade-in-none {
+  transform: none;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Adding transition delay support via inline style variable if needed */
+.fade-in-section[style*="--delay"] {
+  transition-delay: var(--delay);
+}
+
+/* Hide scrollbar for carousel but keep functionality */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
